@@ -11,7 +11,7 @@ namespace Sample.WebApi
         private static IWebHostBuilder CreateHostBuilder(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseKestrel()
-                // .UseIISIntegration()
+                .UseIISIntegration()
                 .UseStartup<Startup>();
     }
 }
