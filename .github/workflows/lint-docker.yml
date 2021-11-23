@@ -2,11 +2,9 @@ name: Lint-Dockerfile
 
 on:
   push:
-    branches: 
-    - main
-    - feature/*
-  pull_request:
-    branches: [ main ]
+    paths: 
+    - Dockerfile
+    - **/Dockerfile
 
 jobs:
   build:
@@ -19,7 +17,5 @@ jobs:
       # uses: hadolint/hadolint-action@d7b38582334d9ac11c12021c16f21d63015fa250
       uses: hadolint/hadolint-action@v1.6.0
       with:
-        # The path to the Dockerfile to lint
-        dockerfile: Dockerfile
         # Search for specified dockerfile recursively, from the project root
         recursive: true
