@@ -22,5 +22,4 @@ jobs:
     - name: Code Style
       run: |
         dotnet tool install -g dotnet-format
-        dotnet format -? --version
         dotnet format --check -v diag
