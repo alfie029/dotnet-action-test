@@ -13,7 +13,7 @@ namespace Sample.WebApi
         {
             Configuration = configuration;
         }
-        
+
         private IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
@@ -35,9 +35,9 @@ namespace Sample.WebApi
             }
             app.UseHealthChecks("/health/live");
             app.UseHealthChecks("/health/ready");
-            
+
             app.UseRouting();
-            
+
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
