@@ -3,9 +3,9 @@ name: Lint-CSharp
 on:
   push:
     paths: 
-    - **.cs
-    - **.csproj
-    - **.json
+      - '**.cs'
+      - '**.csproj'
+      - '**.json'
 
 jobs:
   build:
