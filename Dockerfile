@@ -6,9 +6,9 @@ ENV DOTNET_SYSTEM_GLOBALIZATION_INVARIANT false
 
 # install required dependencies: libgdiplus, tzdata, ffmpeg
 RUN apt-get update \
-    && apt-get install -y --no-install-recommends libgdiplus@4.2-2 \
-        tzdata@2021a-0+deb10u2 \
-        ffmpeg@7:4.1.8-0+deb10u1 \
+    && apt-get install -y --no-install-recommends libgdiplus=4.2-2 \
+        tzdata=2021a-0+deb10u2 \
+        ffmpeg=7:4.1.8-0+deb10u1 \
     && rm -rf /var/lib/apt/lists/*
 
 ENV LC_ALL=en_US.UTF-8 \
