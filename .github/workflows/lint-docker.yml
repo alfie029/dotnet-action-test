@@ -1,4 +1,4 @@
-name: Lint-CSharp
+name: Lint-Dockerfile
 
 on:
   push:
