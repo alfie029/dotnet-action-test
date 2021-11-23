@@ -1,4 +1,4 @@
-name: .NET
+name: Lint-CSharp
 
 on:
   push:
