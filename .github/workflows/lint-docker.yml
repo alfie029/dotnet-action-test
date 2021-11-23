@@ -1,0 +1,29 @@
+name: Lint-CSharp
+
+on:
+  push:
+    branches: 
+    - main
+    - feature/*
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Hadolint Action
+      # You may pin to the exact commit or the version.
+      # uses: hadolint/hadolint-action@d7b38582334d9ac11c12021c16f21d63015fa250
+      uses: hadolint/hadolint-action@v1.6.0
+      with:
+        # The path to the Dockerfile to lint
+        dockerfile: Dockerfile
+        # Search for specified dockerfile recursively, from the project root
+        recursive: true
+        # The output format, one of [tty (default) | json | checkstyle | codeclimate | gitlab_codeclimate ]
+        format: # optional, default is tty
+        # Fail the pipeline only if rules with severity above this threshold are violated. One of [error | warning | info (default) | style | ignore]
+        failure-threshold: warning
