@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v2
     - name: Hadolint Action
       # You may pin to the exact commit or the version.
       # uses: hadolint/hadolint-action@d7b38582334d9ac11c12021c16f21d63015fa250
