@@ -1,0 +1,36 @@
+name: Test-CSharp
+
+on:
+  push:
+    paths: 
+      - '**.cs'
+      - '**.csproj'
+      - '**.json'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.x
+    - name: Setup JFrog source
+      run: |
+        dotnet nuget add source \
+          "https://seismic.jfrog.io/artifactory/api/nuget/nuget" \
+          --name "Seismic" \
+          --username "${{ secrets.ORG_JFROG_USERNAME }}" \
+          --password "${{ secrets.ORG_JFROG_ACCESS_TOKEN }}" \
+          --store-password-in-clear-text
+    - name: Restore dependencies
+      run: dotnet restore
+    - name: Test Infrastructure
+      run: |
+        dotnet test --no-restore \
+          /p:CollectCoverage=true \
+          /p:CoverletOutputFormat=cobertura \
+          --verbosity normal
